@@ -1,7 +1,13 @@
 {
+  "compilerOptions": {
+    "composite": true,
+    "jsx": "react-jsx", // Or "react-jsxdev" for development
+    "lib": ["DOM", "DOM.Iterable", "ESNext"], // Ensure DOM and ESNext are included
+    "types": ["react", "react-dom", "react-router-dom", "vite/client"], // Ensure necessary types are included
+    "esModuleInterop": true, // Often helpful for imports
+    "skipLibCheck": true // Can sometimes suppress errors from node_modules, but fix root cause if possible
+  },
+  "include": ["src"], // Ensure your source directory is included
   "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ]
+ "references": [{ "path":"./tsconfig.node.json" }] 
 }
