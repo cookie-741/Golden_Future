@@ -8,7 +8,7 @@ import {
 
 const Dashboard = lazy(() => import("../pages/Dashboard/Dashboard"));
 const Member = lazy(() => import("../pages/MembersManagement/member.js"));
-const Bonus = lazy(() => import("../pages/Bonus&ReferralManagement/Bonus"));
+const Bonus = lazy(() => import("../pages/BonusManagement/Bonus"));
 const Setting = lazy(() => import("../pages/settingPage/setting"));
 // const Sidebar = lazy(() => import("../components/sidebar"));
 const Login = lazy(() => import("../pages/login/loginForm"));
