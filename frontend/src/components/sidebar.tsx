@@ -17,9 +17,12 @@ interface MenuItem {
   icon: string;
   path: string;
 }
+interface SidebarProps {
+  isCollapsed: boolean;
+  setIsCollapsed: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
-const Sidebar: React.FC = () => {
-  const [isCollapsed, setIsCollapsed] = useState<boolean>(false);
+const Sidebar: React.FC <SidebarProps>  = ({ isCollapsed, setIsCollapsed }) => {
   const navigate = useNavigate();
   const location = useLocation();
 
