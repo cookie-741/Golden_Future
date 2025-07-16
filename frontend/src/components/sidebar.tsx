@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import "../index.css"
+import LogOutPopUp from "../components/pop_up/LogOut";
+import "../index.css";
 
 import logo from "../assets/images/logo.png";
 import control from "../assets/images/sidebar_icon/control.png";
@@ -22,13 +23,24 @@ interface SidebarProps {
   setIsCollapsed: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const Sidebar: React.FC <SidebarProps>  = ({ isCollapsed, setIsCollapsed }) => {
+const Sidebar: React.FC<SidebarProps> = ({ isCollapsed, setIsCollapsed }) => {
+  const [showLogoutPopup, setShowLogoutPopup] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
   const menuItems: MenuItem[] = [
-    { id: "dashboard", label: "Dashboard", icon: dashboardIcon, path: "/dashboard" },
-    { id: "member", label: "Members Management", icon: memberIcon, path: "/member" },
+    {
+      id: "dashboard",
+      label: "Dashboard",
+      icon: dashboardIcon,
+      path: "/dashboard",
+    },
+    {
+      id: "member",
+      label: "Members Management",
+      icon: memberIcon,
+      path: "/member",
+    },
     { id: "bonus", label: "Bonus ", icon: bonusIcon, path: "/bonus" },
     { id: "setting", label: "Setting", icon: settingIcon, path: "/setting" },
   ];
@@ -39,13 +51,13 @@ const Sidebar: React.FC <SidebarProps>  = ({ isCollapsed, setIsCollapsed }) => {
 
   return (
     <section
-      className={`fixed h-[100vh] left-0 top-0 ${
+      className={`fixed h-screen left-0 top-0  ${
         isCollapsed ? "w-20" : "w-80"
       } bg-sidebarColor border rounded-r-2xl p-4 border-r-[#986F2D] border-r-6 flex flex-col justify-between transition-all duration-300 overflow-scroll no-scrollbar`}
     >
       {/* Toggle Collapse Button */}
       <div
-        className={`flex ${
+        className={`flex  ${
           isCollapsed ? "w-[55px] justify-center" : "w-74 justify-end"
         } mb-4 p-4`}
       >
@@ -59,7 +71,7 @@ const Sidebar: React.FC <SidebarProps>  = ({ isCollapsed, setIsCollapsed }) => {
 
       {/* Logo Section */}
       <div
-        className={`flex items-center justify-center gap-4 ${
+        className={`flex items-center justify-center gap-4  ${
           isCollapsed ? "w-10" : "w-56"
         }`}
       >
@@ -77,8 +89,12 @@ const Sidebar: React.FC <SidebarProps>  = ({ isCollapsed, setIsCollapsed }) => {
           <div
             key={item.id}
             onClick={() => handleNavigate(item.path)}
-            className={`flex gap-2 text-white w-60 rounded-md pb-4 pt-5 pl-2 mb-5 items-center cursor-pointer 
-              ${location.pathname === item.path && !isCollapsed ? "border border-white bg-white/20" : ""}
+            className={`flex gap-2 text-white w-60 rounded-md pb-4 pt-5 pl-2 mb-5 items-center cursor-pointer
+              ${
+                location.pathname === item.path && !isCollapsed
+                  ? "border border-white bg-white/20"
+                  : ""
+              }
             `}
           >
             <img
@@ -96,11 +112,15 @@ const Sidebar: React.FC <SidebarProps>  = ({ isCollapsed, setIsCollapsed }) => {
       </div>
 
       {/* Logout Button */}
-      <footer className="mt-60">
+      <footer className="mt-[40%]">
         <div
-          onClick={() => handleNavigate("/logout")}
-          className={`flex gap-4 w-60 rounded-md p-4 items-center cursor-pointer transition-all duration-200
-            ${location.pathname === "/logout" && !isCollapsed ? "border border-white bg-white/20 text-white" : "text-white"}
+          onClick={() => setShowLogoutPopup(true)}
+          className={`flex gap-4 w-60 rounded-md p-2 items-center cursor-pointer transition-all duration-200
+            ${
+              location.pathname === "/logout" && !isCollapsed
+                ? "border border-white bg-white/20 text-white"
+                : "text-white"
+            }
           `}
         >
           <img src={logoutIcon} alt="Logout" className="h-6" />
@@ -109,6 +129,15 @@ const Sidebar: React.FC <SidebarProps>  = ({ isCollapsed, setIsCollapsed }) => {
           )}
         </div>
       </footer>
+      {showLogoutPopup && (
+        <LogOutPopUp
+          onCancel={() => setShowLogoutPopup(false)}
+          onConfirm={() => {
+            setShowLogoutPopup(false);
+            navigate("/login");
+          }}
+        />
+      )}
     </section>
   );
 };

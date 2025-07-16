@@ -1,5 +1,6 @@
 import React from 'react';
-import AdminLayout from '../../components/adminLayout'; 
+import AdminLayout from '../../components/adminLayout';
+import BonusTable from '../../components/Bonus/BonusTable'; 
 
 const MemberPage: React.FC = () => {
   return (
@@ -20,7 +21,7 @@ const MemberPage: React.FC = () => {
           Referral List
         </button>
       </div>
-      {/* Add other dashboard specific components/sections here */}
+      <BonusTable/>
     </AdminLayout>
   );
 };
