@@ -19,7 +19,7 @@ const AdminLayout: React.FC<AdminLayoutProps> = ({ children, pageTitle }) => {
     <div className="flex">
       <Sidebar isCollapsed={isCollapsed} setIsCollapsed={setIsCollapsed} />
 
-      <main className={`transition-all duration-300 ${isCollapsed ? "ml-20" : "ml-80"} p-6 w-full`}>
+      <main className={`transition-all duration-300 ${isCollapsed ? "ml-20" : "ml-80"} p-6 md:w-full`}>
         <div className="flex justify-end">
           <img src={Profile} alt="Profile" />
         </div>
