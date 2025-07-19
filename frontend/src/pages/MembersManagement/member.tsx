@@ -14,7 +14,6 @@ const MemberPage: React.FC = () => {
         <section className="flex-1 bg-[#F2F2F2] border border-black rounded-xl px-10 py-7 min-w-[180px] h-14">
           <div className="flex justify-between items-center h-full">
             <p className="text-xl font-sideBarSubtitle">Search Member Information</p>
-            
           </div>
         </section>
 

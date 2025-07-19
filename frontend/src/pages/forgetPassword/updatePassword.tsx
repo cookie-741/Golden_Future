@@ -24,7 +24,7 @@ const UpdatePassword: React.FC = () => {
             <div>
               <label
                 htmlFor="newPassword"
-                className="block mb-2 text-lg font-medium text-black"
+                className="block mb-2 text-sm md:text-lg font-medium text-black"
               >
                 New Password
               </label>
@@ -40,7 +40,7 @@ const UpdatePassword: React.FC = () => {
             <div>
               <label
                 htmlFor="confirmPassword"
-                className="block mb-2 text-lg font-medium text-black"
+                className="block mb-2 text-sm md:text-lg font-medium text-black"
               >
                 Confirm Password
               </label>
@@ -56,7 +56,7 @@ const UpdatePassword: React.FC = () => {
             <button
               type="button"
               onClick={handleButtonClick}
-              className="w-full text-white font-medium rounded-lg text-lg px-5 py-2.5 text-center bg-btnForget mt-8"
+              className="w-full text-white font-medium rounded-lg text-sm md:text-lg px-5 py-2.5 text-center bg-btnForget mt-8"
             >
               Reset
             </button>

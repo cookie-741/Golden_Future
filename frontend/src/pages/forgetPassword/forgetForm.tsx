@@ -16,7 +16,7 @@ function ForgetForm() {
         <div>
           <label
             htmlFor="email"
-            className="block mb-2 text-lg font-medium text-black"
+            className="block mb-2 text-sm md:text-lg font-medium text-black"
           >
             Email
           </label>
@@ -24,7 +24,7 @@ function ForgetForm() {
             type="email"
             name="email"
             id="email"
-            className="bg-gray-50 border border-loginBorder text-textLogin rounded-lg w-full p-2.5"
+            className="bg-gray-50 border border-loginBorder text-textLogin rounded-lg w-full p-2.5 text-sm"
             placeholder="name@company.com"
             required
           />
@@ -32,7 +32,7 @@ function ForgetForm() {
         <button
           onClick={handleResetClick}
           type="submit"
-          className="w-full text-white font-medium rounded-lg text-lg px-5 py-2.5 text-center bg-btnForget "
+          className="w-full text-white font-medium rounded-lg text-sm md:text-lg px-5 py-2.5 text-center bg-btnForget "
         >
           Request a reset link
         </button>

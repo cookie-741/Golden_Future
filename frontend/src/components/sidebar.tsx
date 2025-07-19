@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import LogOutPopUp from "../components/pop_up/LogOut";
 import "../index.css";
@@ -51,28 +51,28 @@ const Sidebar: React.FC<SidebarProps> = ({ isCollapsed, setIsCollapsed }) => {
 
   return (
     <section
-      className={`fixed h-screen left-0 top-0  ${
+      className={`fixed top-0 left-0 ${
         isCollapsed ? "w-20" : "w-80"
-      } bg-sidebarColor border rounded-r-2xl p-4 border-r-[#986F2D] border-r-6 flex flex-col justify-between transition-all duration-300 overflow-scroll no-scrollbar`}
+      } h-[100dvh] bg-sidebarColor border rounded-r-2xl p-4 border-r-[#986F2D] border-r-6 flex flex-col justify-between transition-all duration-300 overflow-y-auto no-scrollbar`}
     >
       {/* Toggle Collapse Button */}
       <div
         className={`flex  ${
-          isCollapsed ? "w-[55px] justify-center" : "w-74 justify-end"
-        } mb-4 p-4`}
+          isCollapsed ? "w-[55px] justify-center" : "w-74 justify-end  mb-4 p-4"
+        }`}
       >
         <img
           src={isCollapsed ? controlRight : control}
           alt="Toggle"
-          className="h-6 cursor-pointer transition-transform duration-300"
+          className="h-6 cursor-pointer"
           onClick={() => setIsCollapsed(!isCollapsed)}
         />
       </div>
 
       {/* Logo Section */}
       <div
-        className={`flex items-center justify-center gap-4  ${
-          isCollapsed ? "w-10" : "w-56"
+        className={` ${
+          isCollapsed ? "w-10" : " flex items-center justify-center gap-4  w-56"
         }`}
       >
         <img src={logo} alt="Logo" className={`${isCollapsed ? "" : "h-12"}`} />
@@ -89,7 +89,11 @@ const Sidebar: React.FC<SidebarProps> = ({ isCollapsed, setIsCollapsed }) => {
           <div
             key={item.id}
             onClick={() => handleNavigate(item.path)}
-            className={`flex gap-2 text-white w-60 rounded-md pb-4 pt-5 pl-2 mb-5 items-center cursor-pointer
+            className={`${
+              isCollapsed
+                ? "h-28  flex gap-4"
+                : "flex gap-2 text-white w-60 rounded-md pb-4 pt-5 pl-2 mb-5 items-center cursor-pointer"
+            }
               ${
                 location.pathname === item.path && !isCollapsed
                   ? "border border-white bg-white/20"

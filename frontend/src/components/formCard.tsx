@@ -10,16 +10,16 @@ const FormCard: React.FC<FormCardProps> = ({ title, children }) => {
   return (
     <section className="flex flex-col min-h-screen">
       <div className="flex flex-1 flex-col justify-center items-center">
-        <p className="mb-16 text-5xl font-sideBarSubtitle text-btnForget font-medium">
+        <p className="mb-16 text-3xl  md:text-5xl font-sideBarSubtitle text-btnForget font-medium">
           GOLDEN FUTURE
         </p>
 
         <div
-          className="w-[500px] h-[450px] border border-[#B8B8B8] rounded-xl shadow-2xl bg-cover bg-center"
+          className="w-[320px] md:w-[500px] h-[400px] md:h-[450px] border border-[#B8B8B8] rounded-xl shadow-2xl bg-cover bg-center"
           style={{ backgroundImage: `url(${backgroundImage})` }}
         >
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
-            <h1 className="text-2xl font-bold leading-tight tracking-tight text-black font-loginText">
+            <h1 className="text-lg md:text-2xl font-bold leading-tight tracking-tight text-black font-loginText">
               {title}
             </h1>
             {children}

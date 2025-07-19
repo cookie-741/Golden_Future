@@ -14,7 +14,7 @@ const LoginForm = () => {
         <div>
           <label
             htmlFor="email"
-            className="block mb-2 text-lg font-medium text-black"
+            className="block mb-2 text-sm md:text-lg font-medium text-black"
           >
             Email
           </label>
@@ -30,7 +30,7 @@ const LoginForm = () => {
         <div>
           <label
             htmlFor="password"
-            className="block mb-2 text-lg font-medium text-black"
+            className="block mb-2 text-sm md:text-lg font-medium text-black"
           >
             Password
           </label>
@@ -47,14 +47,14 @@ const LoginForm = () => {
           <div className="flex items-start"></div>
           <button
            onClick={handleForgotPassword}
-            className="text-lg font-medium text-btnForget "
+            className="text-md md:text-lg font-medium text-btnForget "
           >
             Forget password?
           </button>
         </div>
         <button
           type="submit"
-          className="w-full text-white font-medium rounded-lg text-lg px-5 py-2.5 text-center bg-btnForget "
+          className="w-full text-white font-medium rounded-lg text-sm md:text-lg px-5 py-2.5 text-center bg-btnForget "
         >
           Log in
         </button>
