@@ -1,6 +1,7 @@
 import React, { useState,useEffect } from "react";
 import Sidebar from "./sidebar";
 import Profile from "../assets/images/profile.png";
+import FooterText from "./footerText";
 
 interface AdminLayoutProps {
   children: React.ReactNode; // This prop will hold the specific page content
@@ -16,18 +17,20 @@ const AdminLayout: React.FC<AdminLayoutProps> = ({ children, pageTitle }) => {
   }, [isCollapsed]);
 
   return (
-    <div className="flex">
+    <div className="relative">
+      <div className="flex">
       <Sidebar isCollapsed={isCollapsed} setIsCollapsed={setIsCollapsed} />
-
       <main className={`transition-all duration-300 ${isCollapsed ? "ml-20" : "ml-80"} p-6 md:w-full`}>
         <div className="flex justify-end">
           <img src={Profile} alt="Profile" />
         </div>
-
-        <p className="text-3xl font-sideBarSubtitle mt-6 mb-4">{pageTitle}</p>
+        <p className="text-2xl md:text-3xl font-sideBarSubtitle mt-6 mb-4 text-nowrap">{pageTitle}</p>
         {children}
       </main>
     </div>
+     <FooterText/>
+    </div>
+    
   );
 };
 
