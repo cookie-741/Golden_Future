@@ -10,10 +10,11 @@ const Dashboard = lazy(() => import("../pages/Dashboard/Dashboard"));
 const Member = lazy(() => import("../pages/MembersManagement/member.js"));
 const Bonus = lazy(() => import("../pages/BonusManagement/Bonus"));
 const Setting = lazy(() => import("../pages/Settings/setting"));
-// const Sidebar = lazy(() => import("../components/sidebar"));
 const Login = lazy(() => import("../pages/Login/loginForm"));
 const Forget = lazy(() => import("../pages/ForgetPassword/forgetForm"));
 const UpdatePassword = lazy(()=>import("../pages/ForgetPassword/updatePassword"))
+const AddMember =lazy(()=>import("../pages/MembersManagement/addMember"))
+const EditMember = lazy(()=>import("../pages/MembersManagement/editMember"))
 
 
 const router = createBrowserRouter(createRoutesFromChildren(
@@ -26,6 +27,8 @@ const router = createBrowserRouter(createRoutesFromChildren(
     <Route path="/login" element={<Login />} />
     <Route path="/forgetPassword" element={<Forget />}/>
     <Route path="/updatePassword" element={<UpdatePassword/>}/>
+    <Route path="/member/addMember" element={<AddMember/>}/>
+    <Route path="/member/editMember" element={<EditMember/>}/>
 </Route>
 ));
 export default router;

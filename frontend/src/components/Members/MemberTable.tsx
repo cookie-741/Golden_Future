@@ -1,7 +1,14 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import ResponsiveTable from '../App/ResponsiveTable';
 
 const MemberTable: React.FC = () => {
+     const navigate = useNavigate();
+
+    const handleEdit = () => {
+        navigate(`/member/editMember`);
+    };
+
     const headers = [
         'Code', 'Type', 'Rank', 'Name', 'Starting Date',
         'Referral Details', 'Bonus 1', <>Bonus 2<br />Payment<br /> Date</>,
@@ -16,7 +23,7 @@ const MemberTable: React.FC = () => {
             'A / 5 | B / 5', '1000฿ 2000฿', '06/07/2025',
             '500฿', '01/08/2025', '100฿', '3600฿',  <>
             <span role="img" aria-label="view">👁️</span>
-            <span role="img" aria-label="edit">✏️</span>
+            <span role="img" aria-label="edit" onClick={handleEdit}>✏️</span>
             <span role="img" aria-label="delete">🗑️</span>
         </>,
         ],

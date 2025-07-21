@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import FormCard from "../../components/formCard";
-import PopUp from "../../components/pop_up/UpdatePassword";
+import PopUp from "../../components/pop_up/updatePassword";
 
 const UpdatePassword: React.FC = () => {
   const [showPopup, setShowPopup] = useState(false);

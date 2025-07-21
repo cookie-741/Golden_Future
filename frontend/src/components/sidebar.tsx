@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import LogOutPopUp from "../components/pop_up/LogOut";
+import LogOutPopUp from "./pop_up/logOutPopUp";
 import "../index.css";
 
 import logo from "../assets/images/logo.png";
